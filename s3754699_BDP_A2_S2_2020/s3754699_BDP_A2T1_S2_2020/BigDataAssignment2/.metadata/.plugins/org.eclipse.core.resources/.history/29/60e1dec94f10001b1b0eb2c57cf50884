@@ -1,0 +1,174 @@
+package Assignment2.TaskA;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.DoubleWritable;
+import org.apache.hadoop.io.MapWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
+
+public class Task2_Strips {
+	public static final Logger LOG = Logger.getLogger(Task2_Strips.class);
+	public static class TokenizerMapper 
+	extends Mapper<Object, Text, Text, MapWritable>{			
+		public void map(Object key, Text value, Context context) 
+				 throws IOException,InterruptedException{
+			// HashMap in HashMap. For example, {'cat': {'eat':3, 'meow': 5, 'sleep': 2},
+			//                                   'dog': {'bark':2, 'park':5, 'friend': 3}}
+			HashMap<String, HashMap<String, Double>> hashMap = new HashMap<String, HashMap<String, Double>>();		
+			// Convert doc to String      
+			String doc = value.toString();
+			// Cleaning the doc, removing punctuation and making a case-insensitive 
+			// and splitting doc into multiple lines
+			String[] cleaned_doc = doc.replaceAll("[^a-zA-Z \n]", "").toLowerCase().split("\\n");
+			for (String line : cleaned_doc){            
+				line = line.trim();
+				// Tokenize the line      
+	            ArrayList<String> tokenized_line = new ArrayList<>();
+	            tokenized_line.addAll(Arrays.asList(line.split("\\s+")));
+	            System.out.println(tokenized_line);
+
+	            // Loop through tokenized_line, construct a pair with all neighbors of the current token.
+	            for (int i=0; i<tokenized_line.size(); i++){
+	            	//Checking if the current token already exists
+	            	String currentToken = tokenized_line.get(i);
+	            	if (! hashMap.containsKey(currentToken)) {
+						hashMap.put( currentToken, new HashMap<String, Double>());
+					}
+	            	
+	                // Find the neighbors for the current token; Loop through tokenized_line but skip the current token
+	                for (int j=0;j<tokenized_line.size(); j++ ){
+	                    if (i!=j){	                   	
+	                    	String currentNeighbor = tokenized_line.get(j);
+	                    	// Retrieving the HashMap for the current Token
+	                    	HashMap<String, Double> current_HashMap = hashMap.get(currentToken);
+	                    	if (! current_HashMap.containsKey(currentNeighbor)) {
+								current_HashMap.put(currentNeighbor, 1.0);
+							}
+	                    	else {
+								current_HashMap.put(currentNeighbor, current_HashMap.get(currentNeighbor)+1.0);
+							}              	                    		                    	                    	                                     
+	                    }
+	                }	                 
+	            }
+			}
+			// Emit(Pair(w,u),count)			
+			for (Map.Entry<String, HashMap<String, Double>> itemEntry : hashMap.entrySet()) {				
+				Map<Writable, Writable> map = new MapWritable();	
+				Text wordText = new Text(itemEntry.getKey());
+				HashMap<String, Double> wordHashMap = itemEntry.getValue();
+				// Adding all items to map
+				for(Map.Entry<String, Double> item : wordHashMap.entrySet()) {
+					Text neighborText = new Text(item.getKey());
+					DoubleWritable freq = new DoubleWritable(item.getValue());
+					map.put(neighborText, freq);		
+				}
+				context.write(wordText, (MapWritable) map);
+			}			
+		}		
+	}
+	
+	public static class IntSumReducer extends Reducer<Text, MapWritable, Text, MapWritable>{
+		
+		// Initialize 
+		Map<Writable, Writable> word_Map = new MapWritable();
+		Map<Writable, Writable> out_Map = new MapWritable();
+		DoubleWritable sum_count = new DoubleWritable();
+		Text currentWord = new Text();
+		
+		public void reduce (Text key, Iterable<MapWritable> values,Context context)
+		throws IOException,InterruptedException{
+			// Create a Map for the current word
+			currentWord=key;
+			LOG.setLevel(Level.DEBUG);
+			
+			for(MapWritable hm : values) {
+				for (Map.Entry<Writable, Writable> itemEntry: hm.entrySet()) {
+					Text currentNeighbor = (Text) itemEntry.getKey();
+					DoubleWritable currentNeightborCount = (DoubleWritable) itemEntry.getValue();
+					if (! word_Map.containsKey(currentNeighbor)) {
+						word_Map.put(currentNeighbor, currentNeightborCount);					
+					}
+					else {
+						// Retrieve the values and put it to word_Map
+						Double currentNeighborCount = currentNeightborCount.get();
+						DoubleWritable originalCount = (DoubleWritable) word_Map.get(currentNeighbor);
+						Double originalCountDouble = originalCount.get();
+						word_Map.put(currentNeighbor, new DoubleWritable(currentNeighborCount + originalCountDouble));
+					}
+				}		 
+			}
+			
+									
+			// Sum up counts for all neighbors 
+			sum_count.set(getTotalCount(values));
+			
+			LOG.debug("word_Map: " + word_Map);
+			
+			
+			// 为什么 Sum 会改变的??? 
+			// Create a new Hashmap for output, don't update it directly
+			
+			for (Map.Entry<Writable, Writable> itemEntry2: word_Map.entrySet()) {
+				// Retrieve the count then compute relative frequency
+				DoubleWritable countDoubleWritable = (DoubleWritable) itemEntry2.getValue();
+				Double countDouble = countDoubleWritable.get();
+				Double rel_freq = countDouble/sum_count.get();
+				DoubleWritable rel_freqDoubleWritable = new DoubleWritable(rel_freq);
+				
+				// Retrieve currentNeighbor
+				Text currentNeighbor = (Text) itemEntry2.getKey();
+				
+				// Put it to out_Map
+				out_Map.put(currentNeighbor, rel_freqDoubleWritable);
+								
+			}		
+			context.write(key,  (MapWritable) out_Map);			
+		}	
+		
+		
+		private Double getTotalCount(Iterable<MapWritable> values) {
+			Double sum_Count=0.0;
+			for(Map.Entry<Writable, Writable> itemEntry : word_Map.entrySet()) {
+				DoubleWritable valueIntWritable = (DoubleWritable) itemEntry.getValue();
+				LOG.debug("Neightbor: "+itemEntry.getKey()+ " New count added to sum: " + valueIntWritable);
+				sum_Count = sum_Count + valueIntWritable.get();
+			}
+			LOG.debug("Sum: " + sum_Count);
+	        return sum_Count;
+	    }
+
+		
+	}
+	
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		Configuration conf = new Configuration();
+		Job job = Job.getInstance(conf, "word count");
+		job.setJarByClass(Task2_Strips.class);
+		job.setMapperClass(TokenizerMapper.class);
+		job.setCombinerClass(IntSumReducer.class);
+		job.setReducerClass(IntSumReducer.class);
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(MapWritable.class);
+		FileInputFormat.addInputPath(job, new Path(args[0]));
+		FileOutputFormat.setOutputPath(job, new Path(args[1]));
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+	}
+	
+
+}

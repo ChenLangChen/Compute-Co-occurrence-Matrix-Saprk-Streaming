@@ -1,0 +1,153 @@
+2020-09-26 13:39:02,776 ERROR [Worker-0: Creating maven-archetype-quickstart] - System.err - [org.eclipse.jdt.launching] error can't determine implemented interfaces of missing type org.eclipse.jdt.internal.core.manipulation.JavaElementLabelComposerCore
+ [Xlint:cantFindType]
+2020-09-26 13:39:02,791 ERROR [Worker-0: Creating maven-archetype-quickstart] - System.err - [org.eclipse.jdt.launching] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.launching.JavaRuntime
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-09-26 13:39:33,326 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine implemented interfaces of missing type org.eclipse.jdt.internal.core.manipulation.JavaElementLabelComposerCore
+ [Xlint:cantFindType]
+2020-09-26 13:39:33,338 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.debug.core.IJavaLineBreakpoint
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-09-26 13:39:37,244 ERROR [main] - System.err - [org.eclipse.jdt.debug.ui] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.debug.ui.actions.RetargettableActionAdapterFactory
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-09-26 13:54:04,001 ERROR [main] - System.err - [org.eclipse.jdt.junit] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.junit.ui.JUnitQuickFixProcessor
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-13 11:46:19,826 ERROR [main] - System.err - [org.eclipse.jdt.launching] error can't determine implemented interfaces of missing type org.eclipse.jdt.internal.core.manipulation.JavaElementLabelComposerCore
+ [Xlint:cantFindType]
+2020-10-13 11:46:19,831 ERROR [main] - System.err - [org.eclipse.jdt.launching] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.launching.JavaRuntime
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-13 11:46:25,335 ERROR [main] - System.err - [org.eclipse.jdt.debug.ui] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.debug.ui.actions.RetargettableActionAdapterFactory
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-13 11:46:25,374 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine implemented interfaces of missing type org.eclipse.jdt.internal.core.manipulation.JavaElementLabelComposerCore
+ [Xlint:cantFindType]
+2020-10-13 11:46:25,381 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.debug.core.IJavaHotCodeReplaceListener
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-13 12:02:21,597 ERROR [main] - System.err - [org.eclipse.jdt.launching] error can't determine implemented interfaces of missing type org.eclipse.jdt.internal.core.manipulation.JavaElementLabelComposerCore
+ [Xlint:cantFindType]
+2020-10-13 12:02:21,606 ERROR [main] - System.err - [org.eclipse.jdt.launching] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.launching.JavaRuntime
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-13 12:02:26,659 ERROR [main] - System.err - [org.eclipse.jdt.debug.ui] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.debug.ui.actions.RetargettableActionAdapterFactory
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-13 12:02:26,690 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine implemented interfaces of missing type org.eclipse.jdt.internal.core.manipulation.JavaElementLabelComposerCore
+ [Xlint:cantFindType]
+2020-10-13 12:02:26,697 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.debug.core.IJavaHotCodeReplaceListener
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-13 12:05:56,814 ERROR [main] - System.err - [org.eclipse.jdt.junit] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.junit.ui.JUnitQuickFixProcessor
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-16 19:41:26,488 ERROR [main] - System.err - [org.eclipse.jdt.launching] error can't determine implemented interfaces of missing type org.eclipse.jdt.internal.core.manipulation.JavaElementLabelComposerCore
+ [Xlint:cantFindType]
+2020-10-16 19:41:26,496 ERROR [main] - System.err - [org.eclipse.jdt.launching] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.launching.JavaRuntime
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-16 19:41:34,736 ERROR [main] - System.err - [org.eclipse.jdt.debug.ui] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.debug.ui.actions.RetargettableActionAdapterFactory
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-16 19:41:34,766 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine implemented interfaces of missing type org.eclipse.jdt.internal.core.manipulation.JavaElementLabelComposerCore
+ [Xlint:cantFindType]
+2020-10-16 19:41:34,771 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.debug.core.IJavaHotCodeReplaceListener
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-17 10:09:02,461 ERROR [main] - System.err - [org.eclipse.jdt.junit] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.junit.ui.JUnitQuickFixProcessor
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-17 21:15:37,403 ERROR [main] - System.err - [org.eclipse.jdt.launching] error can't determine implemented interfaces of missing type org.eclipse.jdt.internal.core.manipulation.JavaElementLabelComposerCore
+ [Xlint:cantFindType]
+2020-10-17 21:15:37,411 ERROR [main] - System.err - [org.eclipse.jdt.launching] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.launching.JavaRuntime
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-17 21:15:44,291 ERROR [main] - System.err - [org.eclipse.jdt.debug.ui] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.debug.ui.actions.RetargettableActionAdapterFactory
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-17 21:15:44,321 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine implemented interfaces of missing type org.eclipse.jdt.internal.core.manipulation.JavaElementLabelComposerCore
+ [Xlint:cantFindType]
+2020-10-17 21:15:44,327 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.debug.core.IJavaHotCodeReplaceListener
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-17 21:18:48,710 ERROR [main] - System.err - [org.eclipse.jdt.junit] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.junit.ui.JUnitQuickFixProcessor
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-18 18:37:22,697 ERROR [main] - System.err - [org.eclipse.jdt.launching] error can't determine implemented interfaces of missing type org.eclipse.jdt.internal.core.manipulation.JavaElementLabelComposerCore
+ [Xlint:cantFindType]
+2020-10-18 18:37:22,722 ERROR [main] - System.err - [org.eclipse.jdt.launching] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.launching.JavaRuntime
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-18 18:37:30,347 ERROR [main] - System.err - [org.eclipse.jdt.debug.ui] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.debug.ui.actions.RetargettableActionAdapterFactory
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-18 18:37:30,380 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine implemented interfaces of missing type org.eclipse.jdt.internal.core.manipulation.JavaElementLabelComposerCore
+ [Xlint:cantFindType]
+2020-10-18 18:37:30,386 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.debug.core.IJavaHotCodeReplaceListener
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-18 20:37:03,520 ERROR [main] - System.err - [org.eclipse.jdt.launching] error can't determine implemented interfaces of missing type org.eclipse.jdt.internal.core.manipulation.JavaElementLabelComposerCore
+ [Xlint:cantFindType]
+2020-10-18 20:37:03,528 ERROR [main] - System.err - [org.eclipse.jdt.launching] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.launching.JavaRuntime
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-18 20:37:10,090 ERROR [main] - System.err - [org.eclipse.jdt.debug.ui] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.internal.debug.ui.actions.RetargettableActionAdapterFactory
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]
+2020-10-18 20:37:10,123 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine implemented interfaces of missing type org.eclipse.jdt.internal.core.manipulation.JavaElementLabelComposerCore
+ [Xlint:cantFindType]
+2020-10-18 20:37:10,130 ERROR [main] - System.err - [org.eclipse.jdt.debug] error can't determine modifiers of missing type org.eclipse.pde.internal.ui.wizards.imports.PluginImportHelper
+when weaving type org.eclipse.jdt.debug.core.IJavaHotCodeReplaceListener
+when weaving classes 
+when weaving 
+ [Xlint:cantFindType]

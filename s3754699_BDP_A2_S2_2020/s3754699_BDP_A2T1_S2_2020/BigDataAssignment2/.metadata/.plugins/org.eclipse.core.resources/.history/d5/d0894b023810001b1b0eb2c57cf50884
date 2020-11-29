@@ -1,0 +1,32 @@
+package Assignment2.TaskA;
+
+import java.util.HashMap;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	 String str = new String("Hello");
+    	 Integer assigned_reducer =Math.abs(str.hashCode() % 3) ;
+    	 
+    	 System.out.println("Assiged room: " + assigned_reducer);
+    	 
+    	 
+    	 HashMap hashMap = new HashMap();    
+         HashMap hashMap1 = new HashMap();    
+         hashMap.put(1, "One");
+         hashMap.put(2, "Two");
+         hashMap.put(3, "Three");
+         System.out.println("Original HashMap : " + hashMap);
+         hashMap1 = (HashMap) hashMap.clone();
+         hashMap1.put(1, "Number")
+         System.out.println("Copied HashMap : " + hashMap1);
+    	 
+    	
+        
+    }
+}
